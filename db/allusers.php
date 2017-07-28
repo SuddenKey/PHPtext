@@ -13,7 +13,7 @@ require_once 'function.php'
 
 <a href="adduser.html">添加用户</a>
 <table style='text-align: left;border: solid' border='1'>
-    <tr><th>id</th><th>名字</th><th>年级</th></tr>
+    <tr><th>id</th><th>名字</th><th>年级</th><th>修改</th></tr>
 
 
 <?php
@@ -35,7 +35,7 @@ for($i = 0;$i<$dataCount;$i++) {
     $id = $result_arr['id'];
     $name = $result_arr['name'];
     $age = $result_arr['age'];
-    echo "<tr><th>$id</th><th>$name</th><th>$age</th></tr>";
+    echo "<tr><th>$id</th><th>$name</th><th>$age</th><td><a href='edituser.php?id=$id'>修改</a></td></tr>";
 }
 
 define('BASE_PATH',str_replace('\\','/',realpath(dirname(__FILE__).'/'))."/");
