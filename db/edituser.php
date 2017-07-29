@@ -15,12 +15,14 @@
  */
 
 require_once 'function.php';
+$conn = connectDB();
+
 if (!empty($_GET['id'])) {
-    $conn = connectDB();
     $id = intval($_GET['id']);
-    $sql = "select * form users where id = $id";
+    $sql = "select * FROM users where id = $id";
 
     $result = $conn->query($sql);
+    print_r(mysqli_error($conn));
     if (mysqli_errno($conn)) {
         die('can not connect db');
     }
@@ -28,6 +30,23 @@ if (!empty($_GET['id'])) {
     print_r($arr);
 }
 ?>
+
+<form action="edituser_service.php" method="post">
+    <div>
+        用户ID
+        <input type="text" name="id" value="<?php echo $arr['id'];?>">
+    </div>
+    <div>
+        用户名
+        <input type="text" name="name" value="<?php echo $arr['name'];?>">
+    </div>
+    <div>
+        用户年龄
+        <input type="text" name="age" value="<?php echo $arr['age'];?>">
+    </div>
+
+    <input type="submit" value="提交修改的数据">
+</form>
 
 </body>
 </html>

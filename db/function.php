@@ -13,7 +13,7 @@ function connectDB() {
     mysqli_select_db($conn, 'myApp');
 
     if ($conn) {
-        echo 'connect bd';
+//        echo 'connect bd';
     } else {
         die('can not connect db');
     }

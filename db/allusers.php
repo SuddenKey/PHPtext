@@ -35,7 +35,7 @@ for($i = 0;$i<$dataCount;$i++) {
     $id = $result_arr['id'];
     $name = $result_arr['name'];
     $age = $result_arr['age'];
-    echo "<tr><th>$id</th><th>$name</th><th>$age</th><td><a href='edituser.php?id=$id'>修改</a></td></tr>";
+    echo "<tr><th>$id</th><th>$name</th><th>$age</th><td><a href='edituser.php?id=$id'>修改</a>  <a href='deleteuser.php?id=$id'>删除</a></td></tr>";
 }
 
 define('BASE_PATH',str_replace('\\','/',realpath(dirname(__FILE__).'/'))."/");
