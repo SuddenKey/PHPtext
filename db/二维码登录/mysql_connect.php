@@ -6,4 +6,14 @@
  * Time: 下午5:28
  */
 
-$con = mysqli_connect('localhost','root','','login');
+function connectDB() {
+    $conn =  mysqli_connect('localhost','root','','qrlogin');
+    mysqli_select_db($conn, 'login_recond');
+
+    if ($conn) {
+//        echo 'connect bd';
+    } else {
+        die('can not connect db');
+    }
+    return $conn;
+}
