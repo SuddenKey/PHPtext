@@ -13,37 +13,36 @@
     for ($i=0;$i<8;$i++) {
         $randn .= rand(0,9);
     }
-    $conn->query("insert into login_recond(recondnumber)VALUES ('$randn')");
+    //echo $randn;
+//    $conn->query("insert into login_recond(recondnumber)VALUES ('$randn')");
 ?>
 
-<img src="http://qr.topscan.com/api.php?text=<?php echo $randn?>" width="300">
-<input hidden="hidden" type="text" name="recondnumber" id="randnumber" value="<?php echo $randn; ?>">
+<!--<img src="http://qr.topscan.com/api.php?text=--><?php //echo $randn?><!--" width="300">-->
+<input hidden="hidden" type="text" name="recondnumber" id="recondnumber" value="<?php echo $randn; ?>">
 </body>
 
 <script>
     function polling() {
         //执行轮询操作
         var xmlHTTP;
-        if (window.isXMLName()) {
+        if (window.XMLHttpRequest) {
             xmlHTTP = new XMLHttpRequest();
         } else  {
             xmlHTTP = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        recondnumber = document.getElementById('recondnumber');
-        alert('1111');
         xmlHTTP.onreadystatechange = function () {
             if (xmlHTTP.status == 200 && xmlHTTP.readyState == 4) {
-                result = xmlHTTP.responseText;
+                var result = xmlHTTP.responseText;
                 if (result == 'true') {
                     window.location.href = 'welcome.php';
                 }
             }
         }
+        var recondnumber = document.getElementById('recondnumber').value;
+        alert(recondnumber);
 
-
-        xmlHTTP.open("GET", "polling.php?recondnumber=" + recondnumber, true);
+        xmlHTTP.open("GET", "polling.php?recondnumber="+recondnumber, true);
         xmlHTTP.send();
-
     }
     setInterval("polling()", 1000);
 </script>

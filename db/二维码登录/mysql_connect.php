@@ -11,7 +11,7 @@ function connectDB() {
     mysqli_select_db($conn, 'login_recond');
 
     if ($conn) {
-//        echo 'connect bd';
+        echo 'connect bd';
     } else {
         die('can not connect db');
     }
