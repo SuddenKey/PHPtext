@@ -12,5 +12,6 @@ while ($row = mysqli_fetch_array($result)) {
     $arr[$n++] =array("tilte"=>$row['title'],"descri"=>$row['descri'],"time"=>$row['time'],"content_url"=>$row['content_url'],"pic_url"=>$row['pic_url']);
 }
 
+
 //数组转换为JSON字符串
 echo json_encode($arr);
