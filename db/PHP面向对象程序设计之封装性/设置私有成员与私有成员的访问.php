@@ -36,5 +36,5 @@ $person = new person();
 //echo "<hr />";
 //echo $person->sex;
 //echo "<hr />";
-echo $person->getName;
+//echo $person->getName();
 echo $person->getAge();
